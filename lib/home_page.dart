@@ -13,7 +13,9 @@ class _ContactsPageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: AnimatedAlign(
+        duration: const Duration(seconds: 1),
+        alignment: clicou ? Alignment.bottomLeft : Alignment.topRight,
         child: InkWell(
           onTap: () {
             setState(() {
@@ -23,13 +25,13 @@ class _ContactsPageState extends State<HomePage> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 3000),
             curve: Curves.bounceOut,
-            width: clicou ? 300 : 150,
-            height: clicou ? 300 : 150,
+            width: clicou ? 150 : 75,
+            height: clicou ? 150 : 75,
             decoration: BoxDecoration(
               borderRadius: clicou
                   ? null
                   : const BorderRadius.all(
-                      Radius.circular(75),
+                      Radius.circular(37.5),
                     ),
               color: clicou ? Colors.blue : Colors.red,
             ),
