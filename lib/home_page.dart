@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,31 +14,15 @@ class _ContactsPageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedAlign(
-        duration: const Duration(seconds: 1),
-        alignment: clicou ? Alignment.bottomLeft : Alignment.topRight,
-        child: InkWell(
-          onTap: () {
-            setState(() {
-              clicou = !clicou;
-            });
-          },
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 3000),
-            curve: Curves.bounceOut,
-            width: clicou ? 150 : 75,
-            height: clicou ? 150 : 75,
-            decoration: BoxDecoration(
-              borderRadius: clicou
-                  ? null
-                  : const BorderRadius.all(
-                      Radius.circular(37.5),
-                    ),
-              color: clicou ? Colors.blue : Colors.red,
-            ),
-          ),
-        ),
+        body: Center(
+      child: Column(
+        children: [
+          const SizedBox(height: 100),
+          LottieBuilder.asset('assets/carro.json'),
+          const SizedBox(height: 50),
+          const CircularProgressIndicator(),
+        ],
       ),
-    );
+    ));
   }
 }
